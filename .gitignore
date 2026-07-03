@@ -1,4 +1,12 @@
-```text
 .env
+.claude/
 venv/
 __pycache__/
+*.pyc
+campus_data.json
+campus_data_deadlines.json
+PROJECT.md
+Project.md
+gemini_rag.py
+node_modules/
+frontend/dist/
