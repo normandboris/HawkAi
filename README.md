@@ -264,13 +264,4 @@ Phase 5 — Evaluation and demo (not started)
 
 ---
 
-## Notes 
-
-- Always use the Supabase client from supabase_client.py — never create a new one
-- Always call Claude or other LLM with temperature=0.0 — this is required for accuracy
-- Always include source_url in every answer via the system prompt
-- When the knowledge_base search returns empty, return "I don't have that information on the official Hunter website. Please contact the financial aid office at Room 241 North Building."
-- Flask should never call Claude or other LLM directly without first searching Supabase
-- All admin routes must check for a valid Supabase Auth token before doing anything
-- Use upsert not insert when saving scraped data — prevents duplicates on re-runs
-- Python dependencies go in requirements.txt, never install globally without adding there
+.
