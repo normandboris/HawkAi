@@ -1,4 +1,4 @@
-# HawkAI — Project Context for Claude Code
+# HawkAI — CSCI 49900 Project Context 
 
 ## What this project is
 HawkAI is an AI-powered financial aid chatbot for Hunter College CUNY students.
@@ -46,12 +46,12 @@ HawkAI-Backend/          ← this repo (backend + scraper)
 │   ├── embeddings.py    ← calls Voyage AI to convert text to vectors
 │   └── prompt.py        ← builds the Claude system prompt with retrieved context
 ├── scraper/
-│   ├── scrape_main.py   ← full scrape — runs twice per semester
+│   ├── scraper.py   ← full scrape — runs twice per semester
 │   ├── scrape_deadlines.py ← lightweight scrape — runs monthly for deadline updates
 │   └── save_to_supabase.py ← inserts/upserts scraped chunks into Supabase
 ├── supabase_client.py   ← single Supabase client shared across the app
 ├── requirements.txt     ← all Python dependencies
-└── .env                 ← API keys (never commit this file)
+└── .env                 ← API keys (never commit)
 ```
 
 Frontend lives in a separate repo: HawkAI-Frontend (React)
@@ -264,23 +264,13 @@ Phase 5 — Evaluation and demo (not started)
 
 ---
 
-## Key dates
-
-- 6/24 — Written proposal submitted
-- 7/06 — Progress Presentation 1 (need: working chat UI + basic RAG)
-- 7/20 — Progress Presentation 2 (need: full end-to-end demo)
-- 8/05 — Student interviews (need: polished UI + evaluation done)
-- 8/12 — Final presentation and delivery
-
----
-
-## Notes for Claude Code
+## Notes 
 
 - Always use the Supabase client from supabase_client.py — never create a new one
-- Always call Claude with temperature=0.0 — this is required for accuracy
+- Always call Claude or other LLM with temperature=0.0 — this is required for accuracy
 - Always include source_url in every answer via the system prompt
 - When the knowledge_base search returns empty, return "I don't have that information on the official Hunter website. Please contact the financial aid office at Room 241 North Building."
-- Flask should never call Claude directly without first searching Supabase
+- Flask should never call Claude or other LLM directly without first searching Supabase
 - All admin routes must check for a valid Supabase Auth token before doing anything
 - Use upsert not insert when saving scraped data — prevents duplicates on re-runs
 - Python dependencies go in requirements.txt, never install globally without adding there
