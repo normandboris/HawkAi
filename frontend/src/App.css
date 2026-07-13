@@ -70,6 +70,31 @@ body {
   color: #777;
 }
 
+.feedback-buttons {
+  margin-left: 8px;
+}
+
+.feedback-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 13px;
+  padding: 2px 4px;
+  opacity: 0.5;
+}
+
+.feedback-btn:hover {
+  opacity: 1;
+}
+
+.feedback-btn.active {
+  opacity: 1;
+}
+
+.feedback-btn:disabled {
+  cursor: default;
+}
+
 .chat-input-row {
   display: flex;
   border-top: 1px solid #ccc;
