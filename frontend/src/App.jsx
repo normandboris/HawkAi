@@ -3,8 +3,8 @@ import AdminLogin from "./AdminLogin";
 import { useState } from 'react'
 import './App.css'
 
-const API_URL = 'http://localhost:5000/chat'
-const FEEDBACK_URL = 'http://localhost:5000/feedback'
+const API_URL = 'https://hawkai-zqi2.onrender.com/chat'
+const FEEDBACK_URL = 'https://hawkai-zqi2.onrender.com/feedback'
 
 function Chatbot() {
   const [question, setQuestion] = useState('')
