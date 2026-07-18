@@ -1,10 +1,12 @@
+import { Routes, Route } from "react-router-dom";
+import AdminLogin from "./AdminLogin";
 import { useState } from 'react'
 import './App.css'
 
 const API_URL = 'http://localhost:5000/chat'
 const FEEDBACK_URL = 'http://localhost:5000/feedback'
 
-function App() {
+function Chatbot() {
   const [question, setQuestion] = useState('')
   const [messages, setMessages] = useState([])
   const [sessionId, setSessionId] = useState(null)
@@ -131,4 +133,13 @@ function App() {
   )
 }
 
-export default App
+function App() {
+  return (
+    <Routes>
+      <Route path="/" element={<Chatbot />} />
+      <Route path="/admin/login" element={<AdminLogin />} />
+    </Routes>
+  );
+}
+
+export default App;
