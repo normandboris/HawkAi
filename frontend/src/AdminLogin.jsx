@@ -1,8 +1,10 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const LOGIN_URL = "https://hawkai-zqi2.onrender.com/admin/login";
 
 function AdminLogin() {
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
@@ -29,9 +31,7 @@ function AdminLogin() {
       if (res.ok) {
         localStorage.setItem("access_token", data.access_token);
         setMessage("Login successful!");
-
-        // Later:
-        // navigate("/admin/dashboard")
+        navigate("/admin/dashboard");
       } else {
         setMessage(data.error);
       }

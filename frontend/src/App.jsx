@@ -1,5 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import AdminLogin from "./AdminLogin";
+import AdminDashboard from "./AdminDashboard";
 import { useState } from 'react'
 import './App.css'
 
@@ -138,6 +139,7 @@ function App() {
     <Routes>
       <Route path="/" element={<Chatbot />} />
       <Route path="/admin/login" element={<AdminLogin />} />
+      <Route path="/admin/dashboard" element={<AdminDashboard />} />
     </Routes>
   );
 }
