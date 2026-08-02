@@ -151,3 +151,70 @@ body {
   border: none;
   cursor: pointer;
 }
+
+.dashboard-container {
+  max-width: 1000px;
+  margin: 30px auto;
+  padding: 0 20px;
+  font-family: Arial, sans-serif;
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.logout-btn {
+  padding: 8px 16px;
+  background: #1565c0;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.dashboard-tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.dashboard-tabs .tab {
+  padding: 8px 16px;
+  border: 1px solid #ccc;
+  background: white;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.dashboard-tabs .tab.active {
+  background: #1565c0;
+  color: white;
+  border-color: #1565c0;
+}
+
+.dashboard-status {
+  color: #666;
+}
+
+.dashboard-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+}
+
+.dashboard-table th,
+.dashboard-table td {
+  border: 1px solid #ddd;
+  padding: 8px 10px;
+  text-align: left;
+  font-size: 13px;
+  vertical-align: top;
+}
+
+.dashboard-table th {
+  background: #f0f0f0;
+}
