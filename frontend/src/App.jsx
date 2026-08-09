@@ -2,6 +2,8 @@ import { Routes, Route } from "react-router-dom";
 import AdminLogin from "./AdminLogin";
 import AdminDashboard from "./AdminDashboard";
 import { useState } from 'react'
+import ReactMarkdown from 'react-markdown'
+import remarkGfm from 'remark-gfm'
 import './App.css'
 
 const API_URL = 'https://hawkai-zqi2.onrender.com/chat'
@@ -91,33 +93,46 @@ function Chatbot() {
         )}
 
         {messages.map((m, i) => (
-          <p key={i} className={`message ${m.role}`}>
-            <b>{m.role === 'user' ? 'You' : 'HawkAI'}:</b> {m.text}
-            {m.confidence !== undefined && (
-              <span className="confidence"> (Confidence: {m.confidence}%)</span>
-            )}
-            {m.role === 'assistant' && m.question && (
-              <span className="feedback-buttons">
-                <button
-                  className={`feedback-btn ${m.rated === true ? 'active' : ''}`}
-                  onClick={() => sendFeedback(i, true)}
-                  disabled={m.rated !== null}
-                >
-                  👍
-                </button>
-                <button
-                  className={`feedback-btn ${m.rated === false ? 'active' : ''}`}
-                  onClick={() => sendFeedback(i, false)}
-                  disabled={m.rated !== null}
-                >
-                  👎
-                </button>
-              </span>
-            )}
-          </p>
+          <div key={i} className={`message-row ${m.role}`}>
+            <div className={`bubble ${m.role}`}>
+              <div className="bubble-label">{m.role === 'user' ? 'You' : 'HawkAI'}</div>
+              <div className="bubble-text">
+                {m.role === 'assistant' ? (
+                  <ReactMarkdown remarkPlugins={[remarkGfm]}>{m.text}</ReactMarkdown>
+                ) : (
+                  m.text
+                )}
+              </div>
+              {m.confidence !== undefined && (
+                <div className="confidence">Confidence: {m.confidence}%</div>
+              )}
+              {m.role === 'assistant' && m.question && (
+                <div className="feedback-buttons">
+                  <button
+                    className={`feedback-btn ${m.rated === true ? 'active' : ''}`}
+                    onClick={() => sendFeedback(i, true)}
+                    disabled={m.rated !== null}
+                  >
+                    👍
+                  </button>
+                  <button
+                    className={`feedback-btn ${m.rated === false ? 'active' : ''}`}
+                    onClick={() => sendFeedback(i, false)}
+                    disabled={m.rated !== null}
+                  >
+                    👎
+                  </button>
+                </div>
+              )}
+            </div>
+          </div>
         ))}
 
-        {loading && <p className="message assistant typing">HawkAI is thinking...</p>}
+        {loading && (
+          <div className="message-row assistant">
+            <div className="bubble assistant typing">HawkAI is thinking...</div>
+          </div>
+        )}
       </div>
 
       <div className="chat-input-row">
