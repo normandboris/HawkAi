@@ -1,6 +1,6 @@
 # HawkAI
 
-**One place. Every campus question. Instant answer.**
+**One place. Instant answer.**
 
 HawkAI is an AI-powered assistant that lets Hunter College students ask financial aid questions in plain English and get accurate, sourced answers instead of digging through disconnected campus websites. It's built as a retrieval-augmented generation (RAG) system: every answer is retrieved from real, scraped Hunter College content before it's written, so responses are grounded in actual data rather than a language model's general knowledge.
 
